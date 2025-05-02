@@ -1,0 +1,30 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  start-gotenberg:
+    desc: Start Gotenberg Docker Container
+    cmds:
+      - docker run -d --rm --name gotenberg -p 3000:3000 gotenberg/gotenberg:8
+    silent: true
+
+  stop-gotenberg:
+    desc: Stop Gotenberg Docker Container
+    cmds:
+      - docker stop gotenberg
+    silent: true
+
+  build:
+    desc: Build the Go app
+    cmds:
+      - go build -o bin/resume-builder main.go
+
+  run:
+    desc: Run Go app (make sure Gotenberg is running first!)
+    deps: [start-gotenberg]
+    cmds:
+      - sleep 2 # wait for Gotenberg to fully boot up
+      - go run main.go
+      - task: stop-gotenberg
+
