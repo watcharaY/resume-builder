@@ -8,8 +8,8 @@ golang based program to generate resume in pdf format from html file.
 
 ## Dependency
 
-- [Godotenv](github.com/joho/godotenv) for get value from .env
-- [Gotenberg](github.com/starwalkn/gotenberg-go-client/v8) for generate pdf from html
+- [Godotenv](https://github.com/joho/godotenv) for get value from .env
+- [Gotenberg](https://github.com/starwalkn/gotenberg-go-client/v8) for generate pdf from html
 
 ## Installation
 
